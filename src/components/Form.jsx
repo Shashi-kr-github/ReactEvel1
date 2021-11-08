@@ -1,8 +1,12 @@
 import React, { useState , useEffect} from 'react';
+
+import './Form.css'
 export default function Form (){
      const [todos , setTodos] = useState([]);
 
      const [todo, setTodo] = useState("");
+     const [todos1 , setTodos1] = useState([]);
+      const [todo1, setTodo1] = useState("");
 
      const [todoEditing , setTodoEditing] = useState(null);
      const [editingText, setEditingText] = useState("");
@@ -33,6 +37,8 @@ export default function Form (){
      setTodo("")
     }
 
+    
+
     function deleteTodo(id) {
         const updatedTodo = [...todos].filter((todo) => todo.id !== id)
         setTodos(updatedTodo)
@@ -61,10 +67,11 @@ export default function Form (){
     }
      return (
  
-    <div >
-       <form onSubmit ={handleSubmit}>
+    <div  className = "main div">
+       <form onSubmit ={handleSubmit} >
          <input type="text" onChange = {(e) => setTodo(e.target.value)} value = {todo} />
          <button type="submit">Add Todo</button>
+          
        </form>
        {todos.map((todo) => <div key = {todo.id}> 
 
